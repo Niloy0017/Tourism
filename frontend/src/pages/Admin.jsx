@@ -16,7 +16,7 @@ export const Admin = () => {
     const getours = async () => {
         let token = localStorage.getItem('token');
 
-        let response = await axios.get('http://localhost:7000/admin/getalltour', {
+        let response = await axios.get('https://tourism-website-server-tau.vercel.app/admin/getalltour', {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`

@@ -19,7 +19,7 @@ export const TourDetail = () => {
     const [submitted, setSubmitted] = useState(false);
 
     const getour = async () => {
-        const response = await axios.get(`http://localhost:7000/user/getour/${id}`);
+        const response = await axios.get(`https://tourism-website-server-tau.vercel.app/user/getour/${id}`);
         console.log("response : ", response.data);
         setTour(response.data.tour);
     }
@@ -28,7 +28,7 @@ export const TourDetail = () => {
         let token = localStorage.getItem('usertoken');
 
         if (token) {
-            const response = await axios.get('http://localhost:7000/user/getcart', {
+            const response = await axios.get('https://tourism-website-server-tau.vercel.app/user/getcart', {
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`
@@ -56,7 +56,7 @@ export const TourDetail = () => {
                 navigate('/login')
             }
             else {
-                const response = await axios.post('http://localhost:7000/user/postcart', {
+                const response = await axios.post('https://tourism-website-server-tau.vercel.app/user/postcart', {
                     name: tour.name, image: tour.image1, person: 1, price: tour.price, total: tour.price,
                     startdate: tour.startdate, tourid: id
                 },

@@ -8,7 +8,7 @@ export const Tours = () => {
 
   const getalltours = async () => 
   {
-    const response = await axios.get("http://localhost:7000/user/getalltour");
+    const response = await axios.get("https://tourism-website-server-tau.vercel.app/user/getalltour");
     console.log("response : ", response.data);
     setTours(response.data.alltour);
   }

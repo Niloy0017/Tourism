@@ -29,7 +29,7 @@ const Register = () => {
 
         if (name && email && password) 
         {
-            let useregister = await axios.post('http://localhost:7000/user/useregister', {
+            let useregister = await axios.post('https://tourism-website-server-tau.vercel.app/user/useregister', {
                 name: name,
                 email: email,
                 password: password

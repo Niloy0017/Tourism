@@ -10,7 +10,7 @@ const Order = () => {
     const getorder = async () => {
         let token = localStorage.getItem('usertoken');
 
-        let response = await axios.get(`http://localhost:7000/user/getorders`, {
+        let response = await axios.get(`https://tourism-website-server-tau.vercel.app/user/getorders`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`

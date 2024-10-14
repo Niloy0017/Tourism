@@ -12,7 +12,7 @@ function AltHeadbar({ logoutHandler }) {
     const getuser = async () => {
         let token = localStorage.getItem('usertoken');
 
-        const response = await axios.get('http://localhost:7000/user/getuser', {
+        const response = await axios.get('https://tourism-website-server-tau.vercel.app/user/getuser', {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`
