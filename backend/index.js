@@ -1,18 +1,18 @@
 const express = require('express');
 const app = express();
 
-const PORT = process.env.PORT || 7000;
-
-require('./dbConnect');
-
 const dotenv = require('dotenv');
 dotenv.config();
+
+require('./dbConnect');
 
 const cors = require('cors');
 app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+const PORT = process.env.PORT || 7000;
 
 const userouter = require('./routers/userRouter');
 app.use('/user', userouter);
