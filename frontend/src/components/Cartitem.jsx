@@ -47,7 +47,7 @@ const Cartitem = ({ item, handleItemDelete, handleTotalCost }) => {
     const updatecart = async () => {
         let token = localStorage.getItem('usertoken');
 
-        const response = await axios.put('https://tourism-website-server-tau.vercel.app/user/updatecart', {
+        const response = await axios.put('https://tourism-backend-y99v.onrender.com/user/updatecart', {
             person, cartid: item._id, total
         },
             {
@@ -62,7 +62,7 @@ const Cartitem = ({ item, handleItemDelete, handleTotalCost }) => {
     async function cancelhandler() {
         let token = localStorage.getItem('usertoken');
 
-        const response = await axios.delete('https://tourism-website-server-tau.vercel.app/user/deletecart', {
+        const response = await axios.delete('https://tourism-backend-y99v.onrender.com/user/deletecart', {
             data: {
                 cartid: item._id
             },
