@@ -39,7 +39,7 @@ const Login = () => {
             })
             console.log('admin login data : ', userlogin.data);
 
-            if (userlogin?.data) 
+            if (userlogin?.data?.token) 
             {
                 localStorage.removeItem('token');
                 localStorage.setItem('usertoken', userlogin.data.token);
