@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
-const dbconnect = mongoose.connect('mongodb://127.0.0.1:27017/tourism',(
+const dotenv = require('dotenv');
+dotenv.config();
+
+const MONGODB_URL = process.env.MONGODB_CONNECT_URL;
+
+const dbconnect = mongoose.connect( MONGODB_URL, (
     console.log('database successfully connected')
 ));
 
