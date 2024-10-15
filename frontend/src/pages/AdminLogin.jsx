@@ -31,7 +31,7 @@ export const AdminLogin = () => {
 
         if (email && password) 
         {
-            let adminlogin = await axios.post('https://tourism-website-server-tau.vercel.app/admin/adminlogin',{
+            let adminlogin = await axios.post('https://tourism-backend-c2dp.onrender.com/admin/adminlogin',{
                 email:email,
                 password:password
             })

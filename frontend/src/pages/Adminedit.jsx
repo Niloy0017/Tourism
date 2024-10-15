@@ -130,7 +130,7 @@ export const Adminedit = () => {
         if (id && nam && tagline && info && image1 && image2 && image3 && image4 && image5 && image6 && price
             && duration && startdate && tourplan) 
         {
-            const response = await axios.put(`https://tourism-website-server-tau.vercel.app/admin/editour/${tour._id}`, {
+            const response = await axios.put(`https://tourism-backend-c2dp.onrender.com/admin/editour/${tour._id}`, {
                 id, name: nam, tagline, info, image1, image2, image3, image4, image5, image6, price, duration,
                 startdate, tourplan
             }, {

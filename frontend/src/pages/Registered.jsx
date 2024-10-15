@@ -29,7 +29,7 @@ const Register = () => {
 
         if (name && email && password) 
         {
-            let useregister = await axios.post('https://tourism-website-server-tau.vercel.app/user/useregister', {
+            let useregister = await axios.post('https://tourism-backend-c2dp.onrender.com/user/useregister', {
                 name: name,
                 email: email,
                 password: password

@@ -102,7 +102,7 @@ export const AdminTourAdd = () => {
             && price && duration && startdate && tourplan) 
             
         {
-            const response = await axios.post('https://tourism-website-server-tau.vercel.app/admin/createtour', {
+            const response = await axios.post('https://tourism-backend-c2dp.onrender.com/admin/createtour', {
                 id, name: nam, tagline, info, image1, image2, image3, image4, image5, image6, price, duration,
                 startdate, tourplan
             }, {
