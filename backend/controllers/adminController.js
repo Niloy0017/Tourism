@@ -1,5 +1,5 @@
 const tourmodel = require('../models/tourModel');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const adminmodel = require('../models/adminModel');
 const jwt = require('jsonwebtoken');
 
