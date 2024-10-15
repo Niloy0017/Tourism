@@ -77,13 +77,18 @@ export const TourDetail = () => {
     }
 
     useEffect(() => {
-        for (let i = 0; i < cart.length; i++) {
-            console.log('cart item id : ', cart[i]._id, ' tour id : ', id);
-            if (cart[i].tour == id) {
-                console.log('cart item id : ', cart[i]._id, ' tour id : ', id);
-                setSubmitted(true);
+        if (cart && cart.length > 0) 
+            {
+                for (let i = 0; i < cart.length; i++) 
+                {
+                    console.log('cart item id : ', cart[i]._id, ' tour id : ', id);
+    
+                    if (cart[i].tour == id) {
+                        console.log('cart item id : ', cart[i]._id, ' tour id : ', id);
+                        setSubmitted(true);
+                    }
+                }
             }
-        }
     }, [cart])
 
     useEffect(() => {
