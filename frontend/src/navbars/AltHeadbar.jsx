@@ -12,7 +12,7 @@ function AltHeadbar({ logoutHandler }) {
     const getuser = async () => {
         let token = localStorage.getItem('usertoken');
 
-        const response = await axios.get('https://tourism-backend-c2dp.onrender.com/user/getuser', {
+        const response = await axios.get('https://tourism-backend-y99v.onrender.com/user/getuser', {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`

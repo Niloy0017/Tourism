@@ -13,7 +13,7 @@ const Cartitem = ({ item, handleItemDelete, handleTotalCost }) => {
     async function handleBuy() {
         let token = localStorage.getItem('usertoken')
 
-        const response = await axios.delete('https://tourism-backend-c2dp.onrender.com/user/deletecart', {
+        const response = await axios.delete('https://tourism-backend-y99v.onrender.com/user/deletecart', {
             data: { cartid: item._id },
             headers: {
                 'Content-Type': 'application/json',

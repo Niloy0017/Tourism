@@ -10,7 +10,7 @@ const Order = () => {
     const getorder = async () => {
         let token = localStorage.getItem('usertoken');
 
-        let response = await axios.get(`https://tourism-backend-c2dp.onrender.com/user/getorders`, {
+        let response = await axios.get(`https://tourism-backend-y99v.onrender.com/user/getorders`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`

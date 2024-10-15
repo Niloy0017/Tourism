@@ -8,7 +8,7 @@ export const Tours = () => {
 
   const getalltours = async () => 
   {
-    const response = await axios.get("https://tourism-backend-c2dp.onrender.com/user/getalltour");
+    const response = await axios.get("https://tourism-backend-y99v.onrender.com/user/getalltour");
     console.log("response : ", response.data);
     setTours(response.data.alltour);
   }

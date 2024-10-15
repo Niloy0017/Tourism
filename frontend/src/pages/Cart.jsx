@@ -31,7 +31,7 @@ export const Cart = () => {
     const handleClearCart = async () => {
         let token = localStorage.getItem('usertoken');
 
-        const response = await axios.delete('https://tourism-backend-c2dp.onrender.com/user/deleteallcart', {
+        const response = await axios.delete('https://tourism-backend-y99v.onrender.com/user/deleteallcart', {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`
@@ -56,7 +56,7 @@ export const Cart = () => {
     const getcart = async () => {
         let token = localStorage.getItem('usertoken');
 
-        const response = await axios.get(`https://tourism-backend-c2dp.onrender.com/user/getcart`, {
+        const response = await axios.get(`https://tourism-backend-y99v.onrender.com/user/getcart`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`

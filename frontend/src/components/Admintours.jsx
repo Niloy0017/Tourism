@@ -14,7 +14,7 @@ export const Admintours = ({ tour, getours }) => {
     const deletehandler = async () => {
         let token = localStorage.getItem('token')
 
-        const response = await axios.delete(`https://tourism-backend-c2dp.onrender.com/admin/deletetour/${tour._id}`, {
+        const response = await axios.delete(`https://tourism-backend-y99v.onrender.com/admin/deletetour/${tour._id}`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`
