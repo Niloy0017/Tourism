@@ -6,7 +6,7 @@ require('./dbConnect');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const PORT = process.env.PORT || 7001;
+const PORT = process.env.PORT || 7000;
 
 const cors = require('cors');
 app.use(cors());
