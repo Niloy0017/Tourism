@@ -16,8 +16,13 @@ app.use(express.urlencoded({ extended: false }));
 
 const userouter = require('./routers/userRouter');
 app.use('/user', userouter);
+
 const adminrouter = require('./routers/adminRouter');
 app.use('/admin', adminrouter);
+
+app.use('/', (req, res) => {
+    res.send('<h1>Hello, this is the backend</h1>');
+});
 
 app.listen(PORT, () => {
     console.log(`server is running at ${PORT}`);
