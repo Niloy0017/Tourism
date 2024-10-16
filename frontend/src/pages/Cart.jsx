@@ -62,7 +62,7 @@ export const Cart = () => {
     {
         let token = localStorage.getItem('usertoken');
 
-        const response = await axios.get(`http://localhost:7000/user/getcart`, {
+        const response = await axios.get(`https://tourism-backend-y99v.onrender.com/user/getcart`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`
