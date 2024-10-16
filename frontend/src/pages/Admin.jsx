@@ -8,12 +8,10 @@ export const Admin = () => {
 
     const navigate = useNavigate();
     const [tours, setTours] = useState([]);
-
-    const clickhandler = () => {
-        navigate('/addtour');
-    }
+    const [loading, setLoading] = useState(false)
 
     const getours = async () => {
+        setLoading(true);
         let token = localStorage.getItem('token');
 
         let response = await axios.get('https://tourism-backend-y99v.onrender.com/admin/getalltour', {
@@ -24,6 +22,7 @@ export const Admin = () => {
         });
         console.log('response : ', response.data.tour);
         setTours(response.data.tour)
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -31,18 +30,23 @@ export const Admin = () => {
     }, []);
 
     return (
-
         <div className='patro'>
-            <div className="title">ALL TOURS</div>
-            <div className='d-flex flex-wrap justify-content-center cards container mb-4'>
-                {
-                    tours && tours.length > 0 ? (
-                        tours.map((tour) => (
-                            <Admintours tour={tour} key={tour.id} getours={getours} />
-                        ))
-                    ) : (<div>Empty No tours</div>)
-                }
-            </div>
+            {loading ? (
+                <div className='h3'>Loading...</div>
+            ) : (
+                <>
+                    <div className="title">ALL TOURS</div>
+                    <div className='d-flex flex-wrap justify-content-center cards container mb-4'>
+                        {tours && tours.length > 0 ? (
+                            tours.map((tour) => (
+                                <Admintours tour={tour} key={tour.id} getours={getours} />
+                            ))
+                        ) : (
+                            <div>Empty No tours</div>
+                        )}
+                    </div>
+                </>
+            )}
         </div>
-    )
+    )  
 }

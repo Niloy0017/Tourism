@@ -53,9 +53,12 @@ const Login = () => {
                     navigate('/tours')
                 }
             }
+            else {
+                toast.error('Login failed. Please check your info.');
+            }  
         }
         else {
-            toast.error('Login failed. Please check your info.');
+            toast.error('Login failed. Please fill your info.');
         }
     }
 

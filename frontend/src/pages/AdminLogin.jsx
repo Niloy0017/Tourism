@@ -3,6 +3,8 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { admintokenadd } from '../redux/reduxslices/authslice';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const AdminLogin = () => {
 
@@ -37,15 +39,21 @@ export const AdminLogin = () => {
             })
             console.log('admin login data : ', adminlogin.data);
 
-            if(adminlogin?.data)
+            if(adminlogin?.data?.token)
             {
                 localStorage.removeItem('usertoken');
                 localStorage.setItem('token',adminlogin.data.token);
 
                 dispatch(admintokenadd({token:adminlogin.data.token}));
+                navigate('/admin')
             }
-            navigate('/admin')
+            else {
+                toast.error('Login failed. Please check your info.');
+            }  
         }
+        else {
+            toast.error('Login failed. Please fill all your info.');
+        }  
     }
 
 

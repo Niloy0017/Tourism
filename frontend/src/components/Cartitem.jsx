@@ -13,7 +13,7 @@ const Cartitem = ({ item, handleItemDelete, handleTotalCost }) => {
     async function handleBuy() {
         let token = localStorage.getItem('usertoken')
 
-        const response = await axios.delete('https://tourism-backend-y99v.onrender.com/user/deletecart', {
+        const response = await axios.delete('http://localhost:7000/user/deletecart', {
             data: { cartid: item._id },
             headers: {
                 'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const Cartitem = ({ item, handleItemDelete, handleTotalCost }) => {
     const updatecart = async () => {
         let token = localStorage.getItem('usertoken');
 
-        const response = await axios.put('https://tourism-backend-y99v.onrender.com/user/updatecart', {
+        const response = await axios.put('http://localhost:7000/user/updatecart', {
             person, cartid: item._id, total
         },
             {
@@ -56,13 +56,13 @@ const Cartitem = ({ item, handleItemDelete, handleTotalCost }) => {
                     Authorization: `Bearer ${token}`
                 }
             })
-        console.log('cart : ', response.data.cart);
+        console.log('cart update : ', response.data.cart);
     }
 
     async function cancelhandler() {
         let token = localStorage.getItem('usertoken');
 
-        const response = await axios.delete('https://tourism-backend-y99v.onrender.com/user/deletecart', {
+        const response = await axios.delete('http://localhost:7000/user/deletecart', {
             data: {
                 cartid: item._id
             },
@@ -72,9 +72,7 @@ const Cartitem = ({ item, handleItemDelete, handleTotalCost }) => {
             }
         })
         console.log('delete response : ', response);
-        if (!response.data) {
-            handleItemDelete()
-        }
+        handleItemDelete()
     }
 
     useEffect(() => {
@@ -139,3 +137,5 @@ const Cartitem = ({ item, handleItemDelete, handleTotalCost }) => {
 };
 
 export default Cartitem;
+
+

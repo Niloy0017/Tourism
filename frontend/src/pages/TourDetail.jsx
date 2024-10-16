@@ -17,11 +17,16 @@ export const TourDetail = () => {
     const [tour, setTour] = useState('');
     const [cart, setCart] = useState([]);
     const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const getour = async () => {
+        setLoading(true);
+
         const response = await axios.get(`https://tourism-backend-y99v.onrender.com/user/getour/${id}`);
         console.log("response : ", response.data);
+
         setTour(response.data.tour);
+        setLoading(false);
     }
 
     const getcart = async () => {
@@ -77,18 +82,16 @@ export const TourDetail = () => {
     }
 
     useEffect(() => {
-        if (cart && cart.length > 0) 
-            {
-                for (let i = 0; i < cart.length; i++) 
-                {
+        if (cart && cart.length > 0) {
+            for (let i = 0; i < cart.length; i++) {
+                console.log('cart item id : ', cart[i]._id, ' tour id : ', id);
+
+                if (cart[i].tour == id) {
                     console.log('cart item id : ', cart[i]._id, ' tour id : ', id);
-    
-                    if (cart[i].tour == id) {
-                        console.log('cart item id : ', cart[i]._id, ' tour id : ', id);
-                        setSubmitted(true);
-                    }
+                    setSubmitted(true);
                 }
             }
+        }
     }, [cart])
 
     useEffect(() => {
@@ -98,83 +101,83 @@ export const TourDetail = () => {
 
     return (
         <div className='container'>
+            {loading ? (
+                <div className='h3 text-center'>Loading...</div>
+            ) : (
+                <div>
+                    <div className='detail-color'>
+                        <p className='px-3 py-4 detail-title'>
+                            {tour?.name} : {tour?.tagline}
+                        </p>
+                        <div className='ps-3 pe-3 p-4 detail-inpics d-flex justify-content-center'>
+                            {tour?.name} in Pictures
+                        </div>
 
-            <div className='detail-color'>
-                <p className='px-3 py-4 detail-title'>
-                    {tour?.name} : {tour?.tagline}
-                </p>
-                <div className='ps-3 pe-3 p-4 detail-inpics d-flex justify-content-center'>
-                    {tour?.name} in Pictures
-                </div>
+                        <div className='p-5'>
+                            <Carousel>
+                                {tour && tour.image1 && (
+                                    <Carousel.Item interval={3000}>
+                                        <img src={tour.image1} className='carousal-img' alt={`${tour.name} Image 1`} />
+                                    </Carousel.Item>
+                                )}
+                                {tour && tour.image2 && (
+                                    <Carousel.Item interval={3000}>
+                                        <img src={tour.image2} className='carousal-img' alt={`${tour.name} Image 2`} />
+                                    </Carousel.Item>
+                                )}
+                                {tour && tour.image3 && (
+                                    <Carousel.Item interval={3000}>
+                                        <img src={tour.image3} className='carousal-img' alt={`${tour.name} Image 3`} />
+                                    </Carousel.Item>
+                                )}
+                                {tour && tour.image4 && (
+                                    <Carousel.Item interval={3000}>
+                                        <img src={tour.image4} className='carousal-img' alt={`${tour.name} Image 4`} />
+                                    </Carousel.Item>
+                                )}
+                                {tour && tour.image5 && (
+                                    <Carousel.Item interval={3000}>
+                                        <img src={tour.image5} className='carousal-img' alt={`${tour.name} Image 5`} />
+                                    </Carousel.Item>
+                                )}
+                                {tour && tour.image6 && (
+                                    <Carousel.Item interval={3000}>
+                                        <img src={tour.image6} className='carousal-img' alt={`${tour.name} Image 6`} />
+                                    </Carousel.Item>
+                                )}
+                            </Carousel>
+                        </div>
+                    </div>
 
-                <div className='p-5'>
-                    <Carousel>
-                        {tour && tour.image1 && (
-                            <Carousel.Item interval={3000}>
-                                <img src={tour.image1} className='carousal-img' alt={`${tour.name} Image 1`} />
-                            </Carousel.Item>
-                        )}
-                        {tour && tour.image2 && (
-                            <Carousel.Item interval={3000}>
-                                <img src={tour.image2} className='carousal-img' alt={`${tour.name} Image 2`} />
-                            </Carousel.Item>
-                        )}
-                        {tour && tour.image3 && (
-                            <Carousel.Item interval={3000}>
-                                <img src={tour.image3} className='carousal-img' alt={`${tour.name} Image 3`} />
-                            </Carousel.Item>
-                        )}
-                        {tour && tour.image4 && (
-                            <Carousel.Item interval={3000}>
-                                <img src={tour.image4} className='carousal-img' alt={`${tour.name} Image 3`} />
-                            </Carousel.Item>
-                        )}
-                        {tour && tour.image5 && (
-                            <Carousel.Item interval={3000}>
-                                <img src={tour.image5} className='carousal-img' alt={`${tour.name} Image 3`} />
-                            </Carousel.Item>
-                        )}
-                        {tour && tour.image6 && (
-                            <Carousel.Item interval={3000}>
-                                <img src={tour.image6} className='carousal-img' alt={`${tour.name} Image 3`} />
-                            </Carousel.Item>
-                        )}
-                    </Carousel>
-                </div>
+                    <div className='detail-color'>
+                        <p className='p-4 detail-inpics d-flex justify-content-center'>
+                            Tour Plan Overview
+                        </p>
 
-            </div>
+                        <p className='ps-3 pe-3 textcolor'>
+                            Duration : <span className='color-key'>{tour?.duration} days</span>
+                        </p>
 
-            <div className='detail-color'>
-                <p className='p-4 detail-inpics d-flex justify-content-center'>
-                    Tour Plan Overview
-                </p>
+                        <p className='ps-3 pe-3 textcolor'>
+                            Starting Date : <span className='color-key'>{tour?.startdate}</span>
+                        </p>
 
-                <p className='ps-3 pe-3 textcolor'>
-                    Duration : <span className='color-key'>{tour?.duration} days</span>
-                </p>
+                        <div className='ps-3 pe-3 textcolor'>
+                            Tour Plan :
+                            <div className='color-plan'>
+                                {tour.tourplan && tour.tourplan.split('\n').map((line, index) => (
+                                    <p key={index}>{line}</p>
+                                ))}
+                            </div>
+                        </div>
 
-                <p className='ps-3 pe-3 textcolor'>
-                    Starting Date : <span className='color-key'>{tour?.startdate}</span>
-                </p>
-
-                <div className='ps-3 pe-3 textcolor'>
-                    Tour Plan :
-                    <div className='color-plan'>
-                        {tour.tourplan && tour.tourplan.split('\n').map((line, index) => (
-                            <p key={index} >{line}</p>
-                        ))}
+                        <button className='ms-3 me-3 mb-5 mt-4' onClick={clickhandler}>
+                            {submitted ? 'Already added to cart' : 'Add to cart'}
+                        </button>
                     </div>
                 </div>
-
-                <button className='ms-3 me-3 mb-5 mt-4' onClick={clickhandler}>
-                    {submitted ? 'Already added to cart' : 'Add to cart'}
-                </button>
-            </div>
+            )}
         </div>
-    );
-};
-
-
-
-
+    )
+}
 
