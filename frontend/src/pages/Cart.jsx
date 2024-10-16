@@ -36,7 +36,7 @@ export const Cart = () => {
     const handleClearCart = async () => {
         let token = localStorage.getItem('usertoken');
 
-        const response = await axios.delete('http://localhost:7000/user/deleteallcart', {
+        const response = await axios.delete('https://tourism-backend-y99v.onrender.com/user/deleteallcart', {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`
