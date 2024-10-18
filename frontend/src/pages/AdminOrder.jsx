@@ -10,6 +10,7 @@ const AdminOrder = () => {
     const getorder = async () => {
         setLoading(true);
         let token = localStorage.getItem('token');
+        console.log("token ",token)
 
         let response = await axios.get(`https://tourism-backend-y99v.onrender.com/admin/getallorders`, {
             headers: {
@@ -18,7 +19,7 @@ const AdminOrder = () => {
             }
         })
         console.log("orders list : ", response.data);
-        setOrders(response.data.orders);
+        setOrders(response.data.order);
         setLoading(false);
     }
 

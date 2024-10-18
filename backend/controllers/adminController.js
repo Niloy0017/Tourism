@@ -2,7 +2,6 @@ const tourmodel = require('../models/tourModel');
 const bcrypt = require('bcryptjs');
 const adminmodel = require('../models/adminModel');
 const jwt = require('jsonwebtoken');
-const usermodel = require('../models/userModel');
 const ordermodel = require('../models/orderModel')
 
 class admin {
@@ -142,7 +141,7 @@ class admin {
                 res.status(201).json({ message: 'all orders does not exist' })
             }
 
-            res.status(201).json({ message: 'all tours find successful', tour });
+            res.status(201).json({ message: 'all tours find successful', order });
         }
         catch (error) {
             console.log(error);
