@@ -2,6 +2,8 @@ const tourmodel = require('../models/tourModel');
 const bcrypt = require('bcryptjs');
 const adminmodel = require('../models/adminModel');
 const jwt = require('jsonwebtoken');
+const usermodel = require('../models/userModel');
+const ordermodel = require('../models/orderModel')
 
 class admin {
     static async adminregister(req, res) {
@@ -130,6 +132,21 @@ class admin {
         catch (error) {
             res.status(404).json({ message: 'error while deleting tour' });
             console.log(error)
+        }
+    }
+
+    static async getallorders(req, res) {
+        try {
+            let order = await ordermodel.find();
+            if (!order) {
+                res.status(201).json({ message: 'all orders does not exist' })
+            }
+
+            res.status(201).json({ message: 'all tours find successful', tour });
+        }
+        catch (error) {
+            console.log(error);
+            res.status(404).json({ message: 'error while getting all tours' });
         }
     }
 }

@@ -13,6 +13,10 @@ export const AdminHeadbar = ({ adminlogouthandler }) => {
             <Link to='/addtour' className="navbar-brand text-white nav-link text-sm-md cursor-pointer">
                 <span>Add Tour</span>
             </Link>
+            
+            <Link to='/orders' className="navbar-brand text-white nav-link text-sm-md cursor-pointer">
+                <span>All Orders</span>
+            </Link>
 
             <Link to='/dashboard' className="navbar-brand text-white email text-sm-md rounded-circle bg-primary">
                 <span>AD</span>
