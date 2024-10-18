@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
 import { Orderitem } from '../components/Orderitem';
 import axios from 'axios';
 
@@ -10,9 +9,9 @@ const AdminOrder = () => {
 
     const getorder = async () => {
         setLoading(true);
-        let token = localStorage.getItem('usertoken');
+        let token = localStorage.getItem('token');
 
-        let response = await axios.get(`https://tourism-backend-y99v.onrender.com/admin/getallorder`, {
+        let response = await axios.get(`https://tourism-backend-y99v.onrender.com/admin/getallorders`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`

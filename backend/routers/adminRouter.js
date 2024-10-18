@@ -13,6 +13,6 @@ adminrouter.get('/getalltour', checklogin, admincontroller.getalltour);
 adminrouter.put('/editour/:id', checklogin, admincontroller.editour);
 adminrouter.delete('/deletetour/:id', checklogin, admincontroller.deletetour);
 
-adminrouter.get('/getallorder', checklogin, admincontroller.getallorders);
+adminrouter.get('/getallorders', checklogin, admincontroller.getallorders);
 
 module.exports = adminrouter;
