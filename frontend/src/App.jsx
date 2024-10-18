@@ -20,6 +20,7 @@ import { AdminLogin } from "./pages/AdminLogin.jsx";
 import { AdminTourAdd } from "./pages/AdminTourAdd.jsx";
 import { Adminedit } from "./pages/Adminedit.jsx";
 import Adminauthroute from "./privateroutes/Adminauthroute.jsx";
+import AdminOrder from "./pages/AdminOrder.jsx";
 
 
 function App() {
@@ -37,6 +38,8 @@ function App() {
 
             <Route path="/admin" element={<Adminauthroute> <Admin /> </Adminauthroute>} />
             <Route path="/addtour" element={<Adminauthroute> <AdminTourAdd /> </Adminauthroute>} />
+
+            <Route path="/adminorders" element={<Adminauthroute> <AdminOrder /> </Adminauthroute>} />
 
             <Route path="/register" element={<Unauthroute> <Register /> </Unauthroute>} />
             <Route path="/login" element={<Unauthroute> <Login /> </Unauthroute>} />
