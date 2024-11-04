@@ -37,7 +37,7 @@ class admin {
                 return res.status(201).json({ message: 'password does not match' });
             }
 
-            let token = jwt.sign({ id: mailexist.id }, process.env.SECRET_KEY, { expiresIn: '1d' });
+            let token = jwt.sign({ id: mailexist._id }, process.env.SECRET_KEY, { expiresIn: '1d' });
 
             res.status(201).json({ message: 'admin login successful', token });
         }
